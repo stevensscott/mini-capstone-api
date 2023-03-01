@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+#Model name:string price:integer image_url:string description:string
+puts "DB Seeding started!"
+Product.create(name:"pizza", price: 10, image_url:"www.testfornow.com", description: "cheese")
+puts "DB Seeding completed!"
