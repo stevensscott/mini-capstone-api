@@ -1,0 +1,17 @@
+### Products Index Test
+get http://localhost:3000/products
+
+### Product Show Test to get specific product by ID
+get http://localhost:3000/products/1
+
+### Product Create Test
+post http://localhost:3000/products.json
+Content-Type: application/json
+
+{
+"name" : "whatsup",
+"price": 100,
+"image_url": "blablabla",
+"description": "Mydescriptionhere"
+}
+
