@@ -15,3 +15,13 @@ Content-Type: application/json
 "description": "Mydescriptionhere"
 }
 
+### Product Update Test
+patch  http://localhost:3000/products/1.json
+Content-Type: application/json
+
+{
+"name" : "whatsup",
+"price": 999,
+"image_url": "blablabla",
+"description": "Mydescriptionhere"
+}
