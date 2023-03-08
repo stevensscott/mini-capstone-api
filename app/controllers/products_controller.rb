@@ -10,19 +10,7 @@ class ProductsController < ApplicationController
     render json: product.as_json
   end
 
-  #HARDCODED CREATE
-  # def create
-  #   product=Product.new(
-  #     name:"hardcodedPOSThamburger",
-  #     price: 10,
-  #     image_url:"www.testfornow.com",
-  #     description: "cheese"
-  #   )
-  #   product.save
-  #   render json: product.as_json
-  # end
-
- # Dynamically created product
+  #
   def create
     product=Product.new(
       name: params[:name],
@@ -30,8 +18,11 @@ class ProductsController < ApplicationController
       image_url: params[:image_url],
       description: params[:description]
     )
-    product.save
-    render json: product.as_json
+    if product.save
+      render json: product.as_json
+     else
+       render json: {message:product.errors.full_messages} ,status:422
+    end
   end
 
   def update
@@ -43,7 +34,11 @@ class ProductsController < ApplicationController
       image_url: params[:image_url] || product.image_url,
       description: params[:description] || product.description,
     )
-    render json: product.as_json
+    if product.valid?
+      render json: product.as_json
+    else
+      render json: {message:product.errors.full_messages}, status:422
+    end
   end
 
   def destroy

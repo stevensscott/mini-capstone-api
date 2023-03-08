@@ -9,18 +9,18 @@ post http://localhost:3000/products.json
 Content-Type: application/json
 
 {
-"name" : "whatsup",
+"name" : " ",
 "price": 100,
 "image_url": "blablabla",
 "description": "Mydescriptionhere"
 }
 
 ### Product Update Test
-patch  http://localhost:3000/products/1.json
+patch  http://localhost:3000/products/8.json
 Content-Type: application/json
 
 {
-"name" : "whatsup",
+"name" : "  ",
 "price": 999,
 "image_url": "blablabla",
 "description": "Mydescriptionhere"
@@ -28,3 +28,13 @@ Content-Type: application/json
 
 ### Product Delete Test
 delete http://localhost:3000/products/4.json
+
+### Supplier Create Test
+post http://localhost:3000/suppliers.json
+Content-Type: application/json
+
+{
+"name" : "Coca Cola ",
+"email": "cc@test.com",
+"phone_number": "777-777-7777"
+}
