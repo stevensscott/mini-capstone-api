@@ -2,27 +2,28 @@
 get http://localhost:3000/products
 
 ### Product Show Test to get specific product by ID
-get http://localhost:3000/products/1
+get http://localhost:3000/products/9
 
 ### Product Create Test
 post http://localhost:3000/products.json
 Content-Type: application/json
 
 {
-"name" : " ",
+"name" : "vvvvv",
 "price": 100,
-"image_url": "blablabla",
-"description": "Mydescriptionhere"
+"description": "Mydescriptionhere",
+"supplier_id": 2,
+"url": "blablabla"
 }
 
 ### Product Update Test
-patch  http://localhost:3000/products/8.json
+patch  http://localhost:3000/products/9.json
 Content-Type: application/json
 
 {
-"name" : "  ",
+"name" : "dddd  ",
 "price": 999,
-"image_url": "blablabla",
+"supplier_id": 2,
 "description": "Mydescriptionhere"
 }
 

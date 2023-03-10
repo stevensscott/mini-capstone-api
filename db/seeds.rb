@@ -32,6 +32,8 @@
 #   {name: "tacos", price: "10.0", image_url: "www.testfornow.com", description: "cheese", inventory_count: nil},
 #   {name: "ssssssssss", price: "10.12", image_url: "www.testfornow.com", description: "cheese", inventory_count: 33}
 # ])
-Supplier.create(name: "Kraft", email:"kraft@test.com", phone_number:"555-555-5555")
-Supplier.create(name: "Heinz", email:"heinz@test.com", phone_number:"222-222-2222")
-Supplier.create(name: "Kellog", email:"kellog@test.com", phone_number:"111-111-1111")
+# Supplier.create(name: "Kraft", email:"kraft@test.com", phone_number:"555-555-5555")
+# Supplier.create(name: "Heinz", email:"heinz@test.com", phone_number:"222-222-2222")
+# Supplier.create(name: "Kellog", email:"kellog@test.com", phone_number:"111-111-1111")
+
+Image.create(url:"https://media.istockphoto.com/id/1250133101/photo/row-of-mexican-street-tacos-on-slate-with-carne-asada-and-al-pastor-in-corn-tortilla.jpg?s=612x612&w=0&k=20&c=eR2iiJf0X4HHBL8bRW-mhnv-I5gy3RudWmoMXxMfP4A=", product_id:9)
