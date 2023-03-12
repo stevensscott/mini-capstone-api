@@ -39,3 +39,15 @@ Content-Type: application/json
 "email": "cc@test.com",
 "phone_number": "777-777-7777"
 }
+
+### Users Create Test
+post http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+"name" : "test users",
+"email": "test@test.com",
+"password": "password",
+"password_confirmation": "password"
+}
+

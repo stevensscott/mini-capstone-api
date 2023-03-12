@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     products= Product.all
-    render json: products, :include => [:supplier,:images] #the :supplier here is what enables us to use the supplier model
+    render json: products, :include => [:supplier,:images], :methods=>[:is_discounted?] #the :supplier here is what enables us to use the supplier model
   end
 
   def show
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
     product.update(
       name: params[:name] || product.name,
       price: params[:price] || product.price,
-      #image_url: params[:image_url] || product.image_url,
+      supplier_id: params[:supplier_id] || product.supplier_id,
       description: params[:description] || product.description
     )
     if product.valid?

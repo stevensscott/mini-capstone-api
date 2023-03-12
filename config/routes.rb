@@ -11,4 +11,14 @@ Rails.application.routes.draw do
   post "/suppliers" => "suppliers#create" #creates a product and adds to db
   patch "/suppliers/:id" =>"suppliers#update"#updates a product by ID
   delete "/suppliers/:id" =>"suppliers#destroy"#deletes a product by ID
+
+ #Users
+  post "/users" => "users#create" #creates a new user/pw
+
+  #Sessions
+  post "/sessions" =>"sessions#create"#creates a new session
+
+
+
+
 end

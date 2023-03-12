@@ -3,20 +3,14 @@
 one:
   name: MyString1
   price: 10
-  image_url: ImageMyString1
   description: "MyString123456789"
   inventory_count: 1 
+  supplier: one
 
 two:
   name: MyString2
   price: 11
-  image_url: ImageMyString2
   description: "MyString123456789"
   inventory_count: 2
+  supplier: two
 
-three:
-  name: MyString3
-  price: 12
-  image_url: ImageMyString3
-  description: "MyString123456789"
-  inventory_count: 3
