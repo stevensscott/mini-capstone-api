@@ -1,5 +1,6 @@
 ### Products Index Test
 get http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2MDJ9.v2yR3fGPum6rhpX6UWl6adywlf-DNkM3DcIUqkpGnOo
 
 ### Product Show Test to get specific product by ID
 get http://localhost:3000/products/9
@@ -7,9 +8,10 @@ get http://localhost:3000/products/9
 ### Product Create Test
 post http://localhost:3000/products.json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2MDJ9.v2yR3fGPum6rhpX6UWl6adywlf-DNkM3DcIUqkpGnOo
 
 {
-"name" : "vvvvv",
+"name" : "currentuserprod2",
 "price": 100,
 "description": "Mydescriptionhere",
 "supplier_id": 2,
@@ -50,4 +52,14 @@ Content-Type: application/json
 "password": "password",
 "password_confirmation": "password"
 }
+
+### Create Sessions Test
+post http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+"email": "test@test.com",
+"password": "password"
+}
+
 

@@ -3,6 +3,7 @@ require "test_helper"
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   #gets all products from products table and asserts product count from DB matches what we pull from the api
   test "index" do
+    
     get "/products.json"
     assert_response 200
   
@@ -19,15 +20,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_equal "MyString2", data["name"] #asserts the name of the first product in DB is MyString3
   end
 
-  # test "create" do
-  #   assert_difference "Product.count", 1 do
-  #     post "/products.json", params: { name: "test", price: 10,  description: "test description" ,supplier_id:1,supplier: "one"}
-  #     assert_response 200
-  #   end
+  test "create" do
+    assert_difference "Product.count", 1 do
+      post "/products.json", params: { name: "test", price: 10,  description: "test description" , supplier_id: 2}
+      assert_response 200
+    end
 
-  #   post "/products.json", params: {}
-  #   assert_response 422
-  # end
+    post "/products.json", params: {}
+    assert_response 422
+  end
 
   test "update" do
     product = Product.first
@@ -35,8 +36,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    pp product
-    p "this is prouduct #{product.name}" 
     assert_equal "Updated name", data["name"]
     assert_equal product.price, data["price"].to_i    
     assert_equal product.description, data["description"]

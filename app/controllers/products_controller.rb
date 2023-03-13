@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   def index
+    pp current_user
     products= Product.all
-    render json: products, :include => [:supplier,:images], :methods=>[:is_discounted?] #the :supplier here is what enables us to use the supplier model
+    render json: products, :include => [:supplier,:images], :methods=>[:is_discounted?] #the :supplier here is what enables us to use the 
+    #supplier model
+    pp current_user
   end
 
   def show
@@ -29,6 +32,7 @@ class ProductsController < ApplicationController
       )
       image.save
       render json: product, :include => [:supplier,:images]
+      pp current_user
       
      else
        render json: {message:product.errors.full_messages} ,status:422
