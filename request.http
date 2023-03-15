@@ -48,7 +48,7 @@ Content-Type: application/json
 
 {
 "name" : "test users",
-"email": "test@test.com",
+"email": "test1@test.com",
 "password": "password",
 "password_confirmation": "password"
 }
@@ -58,8 +58,29 @@ post http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-"email": "test@test.com",
+"email": "test1@test.com",
 "password": "password"
 }
 
 
+### Order Create Test
+post http://localhost:3000/orders.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3NDl9.0sw8qTB2-Jtt7xsr2ZGLJ8TNd5Y9SVnkp8a03kP1WHw
+
+
+{
+"product_id": 34,
+"quantity": 2,
+"subtotal": 2,
+"tax": 3,
+"total": 5
+}
+
+### Order Show Test to get Order product by ID
+get http://localhost:3000/orders/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3NDl9.0sw8qTB2-Jtt7xsr2ZGLJ8TNd5Y9SVnkp8a03kP1WHw
+
+### Order Index Test(all orders)
+get http://localhost:3000/orders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3NDl9.0sw8qTB2-Jtt7xsr2ZGLJ8TNd5Y9SVnkp8a03kP1WHw
