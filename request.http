@@ -21,9 +21,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2M
 ### Product Update Test
 patch  http://localhost:3000/products/9.json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzkwMTI3ODh9.9re05GYYjmNU50I_C7Acdfq1C7cqq6rwd9rYtmXfbT4
 
 {
-"name" : "dddd  ",
+"name" : "ddddggg  ",
 "price": 999,
 "supplier_id": 2,
 "description": "Mydescriptionhere"
@@ -70,15 +71,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3N
 
 
 {
-"product_id": 34,
-"quantity": 2,
-"subtotal": 2,
-"tax": 3,
-"total": 5
+"product_id": 35,
+"quantity": 2
+
 }
 
 ### Order Show Test to get Order product by ID
-get http://localhost:3000/orders/1
+get http://localhost:3000/orders/1.json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3NDl9.0sw8qTB2-Jtt7xsr2ZGLJ8TNd5Y9SVnkp8a03kP1WHw
 
 ### Order Index Test(all orders)
