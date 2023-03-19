@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
+ # This class is inherited by all of the other controllers in the app
+  protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  #current authenticated user
   def current_user
     auth_headers = request.headers["Authorization"]
     if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]

@@ -1,3 +1,6 @@
+@jwt=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzkzMzE0NTF9.Qzqr8aipfJ0g-9j9xlaZ34A8Rk3ZpFeGXqErcjMvlOA
+
+
 ### Products Index Test
 get http://localhost:3000/products.json?category=dairy
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2MDJ9.v2yR3fGPum6rhpX6UWl6adywlf-DNkM3DcIUqkpGnOo
@@ -8,10 +11,10 @@ get http://localhost:3000/products/9
 ### Product Create Test
 post http://localhost:3000/products.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2MDJ9.v2yR3fGPum6rhpX6UWl6adywlf-DNkM3DcIUqkpGnOo
+Authorization: Bearer {{jwt}}
 
 {
-"name" : "currentuserprod2",
+"name" : "wtf s",
 "price": 100,
 "description": "Mydescriptionhere",
 "supplier_id": 2,
@@ -83,3 +86,25 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3N
 ### Order Index Test(all orders)
 get http://localhost:3000/orders/
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzg5MjQ3NDl9.0sw8qTB2-Jtt7xsr2ZGLJ8TNd5Y9SVnkp8a03kP1WHw
+
+### Carted Product Create Test
+post http://localhost:3000/carted_products.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+"product_id": 10,
+"quantity": 2
+
+}
+
+ # t.integer "user_id"
+  # t.integer "product_id"
+  # t.integer "quantity"
+  # t.integer "order_id"
+
+### Carted Product Index Test
+get http://localhost:3000/carted_products.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+

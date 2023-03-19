@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user
+  #Ensures anyone using this controller is authenticated
+  #authenticate_user is a method from the application controller
+  before_action :authenticate_user 
 
+  #renders all orders from the Order DB(model)
+  #the all method is what is used to retrieve all orders
+  #if current user limits the rendered results only to the logged in user(jwt)
   def index
     orders=Order.all
     if current_user
@@ -15,7 +20,9 @@ class OrdersController < ApplicationController
   end
   
   
-  
+  #in the create method,we first look up the product that we are adding to the order by product id.
+  #Once we have the product, we can use that to calc subtotal,tax, total.
+  #We then use this information to create the order
   def create
     product=Product.find_by(id: params[:product_id])
     subtotal= product.price * params[:quantity].to_i
@@ -28,14 +35,18 @@ class OrdersController < ApplicationController
     subtotal: subtotal,
     tax: prod_tax,
     total: prod_total)
+  #if order saves with no errors, render the orders template, which resides in _order.json
     if @order.save
       render template: "orders/show"
-    
+  #if order does not save, render stock error message and a 422 which means unprocessable content(ie-something wrong with request)
     else
       render json: {message:@order.errors.full_messages}, status:422
     end
   end
-
+  #in the show method, we are passing in a specific order id
+  #we then use the find_by method to look it up in the DB
+  #next, follow the same logic as above, we eithe render it from the view
+  #or render an error message
   def show
     order_id=params[:id]
     @order=Order.find_by(id: order_id)
