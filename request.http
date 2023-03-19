@@ -1,5 +1,5 @@
 ### Products Index Test
-get http://localhost:3000/products
+get http://localhost:3000/products.json?category=dairy
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4Mzc2MDJ9.v2yR3fGPum6rhpX6UWl6adywlf-DNkM3DcIUqkpGnOo
 
 ### Product Show Test to get specific product by ID

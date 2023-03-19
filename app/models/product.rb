@@ -15,6 +15,8 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :category_products
   has_many :categories, through: :category_products
+  has_many :carted_products
+  has_many :orders, through: :carted_products
    
   def is_discounted?
     price <= 10   #evaluates to true or false so no need for if conditional

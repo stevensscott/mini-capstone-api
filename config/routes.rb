@@ -23,6 +23,13 @@ Rails.application.routes.draw do
   get "/orders/:id" => "orders#show"#gets an order by id passed in
   get "orders/" =>"orders#index"#get all orders
 
+  #carted_products
+  post "/carted_products" => "carted_products#create" #creates carted_product
+  get "/carted_products" => "carted_products#index"
+  get "/carted_products/:id" => "carted_products#show"
+  patch "/carted_producs/:id" => "carted_products#update"
+  delete "/carted_products/:id" => "carted_products#destroy"
+
 
 
 

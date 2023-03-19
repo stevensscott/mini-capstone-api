@@ -2,8 +2,14 @@ class ProductsController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
   def index
     pp current_user
-    products= Product.all
-    render json: products, :include => [:supplier,:images], :methods=>[:is_discounted?] #the :supplier here is what enables us to use the 
+    @products= Product.all
+    
+    if params[:category]
+      category=Category.find_by(name: params[:category])
+      @products=category.products
+    end
+    render template: "products/index"
+    #render json: products, :include => [:supplier,:images], :methods=>[:is_discounted?] #the :supplier here is what enables us to use the 
     #supplier model
     pp current_user
   end
